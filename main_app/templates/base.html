@@ -1,0 +1,43 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="{% static 'images/splash.svg' %}"
+    />
+    <title>Chicken Collector</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}" />
+    {% block head %} {% endblock %}
+  </head>
+  <body>
+    <header>
+      <div class="header-logo-container">
+        <a href="/">
+          <img src="{% static 'images/header-logo.svg' %}" alt="Header Image" />
+        </a>
+      </div>
+      <nav>
+        <ul>
+          {% if user.is_authenticated %}
+          <li><a href="{% url 'chickens_index' %}">All Chickens</a></li>
+          <li><a href="{% url 'toys_index' %}">All Toys</a></li>
+          <li><a href="{% url 'chickens_create' %}">Add a Chicken</a></li>
+          <li><a href="{% url 'toys_create' %}">Add a Toy</a></li>
+          <li><a href="{% url 'about' %}">About</a></li>
+          <li><a href="{% url 'logout' %}">Log Out</a></li>
+          {% else %}
+          <li><a href="{% url 'about' %}">About</a></li>
+          <li><a href="{% url 'home' %}">Log In</a></li>
+          {% endif %}
+        </ul>
+      </nav>
+    </header>
+    <main>{% block content %} {% endblock %}</main>
+  </body>
+</html>
