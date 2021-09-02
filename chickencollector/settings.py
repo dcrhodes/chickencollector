@@ -115,7 +115,7 @@ STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL = 'chickens_index'
 LOGOUT_REDIRECT_URL = 'home'
 
+DEBUG_PROPAGATE_EXCEPTIONS = True
+
 import django_heroku
 django_heroku.settings(locals())
-
-DEBUG_PROPAGATE_EXCEPTIONS = True
