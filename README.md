@@ -1,3 +1,3 @@
 # chickencollector
 
-This was a project completed as a lab with General Assembly.
+This is a Python/Django project completed as a lab with General Assembly.
